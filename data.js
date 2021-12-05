@@ -1,4 +1,4 @@
-[
+const contactData = [
     {
         "id": 1,
         "name": "Петя",

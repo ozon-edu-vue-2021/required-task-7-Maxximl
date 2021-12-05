@@ -1,5 +1,3 @@
-import { MAX_CONTACTS } from "./constants.js";
-
 const container = document.querySelector("#container");
 const contactTemplate = document.querySelector("#contact-template").content.querySelector(".contact__item");
 const contactList = document.querySelector(".contacts-list");
@@ -42,7 +40,7 @@ function getContactsMap(data) {
 
 function prepareContacts(data) {
     allContactsMap = getContactsMap(data);
-    console.log(allContactsMap);
+
     sortedAllContacts = data.sort((a, b) => {
         const leftOperand = allContactsMap[a.id];
         const rightOperand = allContactsMap[b.id];
@@ -60,13 +58,11 @@ function prepareContacts(data) {
             }
         }
     });
-    console.log(sortedAllContacts);
+
 }
 function getUsers() {
-    fetch("./data.json").then(response => response.json()).then((data) => {
-        prepareContacts(data);
-        renderUsers(data);
-    })
+        prepareContacts(contactData);
+        renderUsers(contactData);
 }
 
 function renderUsers(contacts) {
